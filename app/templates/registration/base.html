@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Courses</title>
+    {% load static %}
+    <link href="{% static 'app/css/auth.css' %}" rel="stylesheet">
+    <link href="{% static 'app/css/courses.css' %}" rel="stylesheet">
+    <link href="{% static 'app/css/footer.css' %}" rel="stylesheet">
+    <link href="{% static 'app/css/main.css' %}" rel="stylesheet">
+    <link href="{% static 'app/css/navbar.css' %}" rel="stylesheet">
+    <link href="{% static 'app/css/base.css' %}" rel="stylesheet">
+    <link href="{% static 'app/css/bootstrap.min.css' %}" rel="stylesheet">
+</head>
+<body>
+<div id="header">
+    <a href="/" class="logo">
+                <span>
+                    ONLINE COURSES
+                </span>
+    </a>
+    <ul class="menu" style="padding-top: 20px">
+        {% if request.user.is_authenticated %}
+            <li><a href="{% url "logout" %}">Sign out</a></li>
+        {% else %}
+            <li><a href="{% url "login" %}">Sign in</a></li>
+        {% endif %}
+    </ul>
+</div>
+<div id="content">
+    {% block content %}
+    {% endblock %}
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script>
+    $(document).ready(function() {
+        {% block domready %}
+        {% endblock %}
+    });
+</script>
+</body>
+</html>

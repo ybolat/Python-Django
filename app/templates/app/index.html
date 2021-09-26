@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Courses</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'app/img/ICON/favicon.png' %}" type="image/x-icon">
+
+<!--    TAILWIND CSS-->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="{% static 'app/css/custom.css' %}" rel="stylesheet">
+
+<!--    OLD STYLES-->
+
+<!--    <link href="{% static 'app/css/auth.css' %}" rel="stylesheet">-->
+<!--    <link href="{% static 'app/css/courses.css' %}" rel="stylesheet">-->
+<!--    <link href="{% static 'app/css/footer.css' %}" rel="stylesheet">-->
+<!--    <link href="{% static 'app/css/main.css' %}" rel="stylesheet">-->
+<!--    <link href="{% static 'app/css/navbar.css' %}" rel="stylesheet">-->
+<!--    <link href="{% static 'app/css/responsive.css' %}" rel="stylesheet">-->
+<!--    <link href="{% static 'app/css/style.css' %}" rel="stylesheet">-->
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar shadow-md">
+        <ul class="nav-links flex items-center py-2">
+            <a href="/" style="text-decoration: none" class="hover:text-blue-500 transition text-2xl font-bold px-4 py-2 mx-3 logo">
+                <span>
+                    ONLINE COURSES
+                </span>
+            </a>
+            <li class="text-lg font-bold px-4 py-2 mx-3 nav-item active"><a style="text-decoration: none" class="hover:text-blue-500 transition" href="/">Main page</a></li>
+            <li class="text-lg font-bold px-4 py-2 mx-3 nav-item"><a style="text-decoration: none" class="hover:text-blue-500 transition" href="{% url 'contactUs' %}">Contacts</a></li>
+            <li class="text-lg font-bold px-4 py-2 mx-3 nav-item"><a style="text-decoration: none" class="hover:text-blue-500 transition" href="{% url 'help' %}">Help</a></li>
+            {% if user.is_authenticated%}
+            <li class="text-lg font-bold px-4 py-2 mx-3 nav-item"><a style="text-decoration: none" class="hover:text-blue-500 transition" href="{% url 'my_courses' %}">My courses</a></li>
+            {%endif%}
+            <li class="text-lg font-bold px-4 py-2 mx-3 nav-item"><a style="text-decoration: none" class="hover:text-blue-500 transition" href="{% url 'aboutUs' %}">About US</a></li>
+        </ul>
+        {%block login%}
+        {% if user.is_authenticated%}
+        <ul class="nav-links flex items-center">
+            <li><a class="px-4 py-2 mx-3 font-bold hover:text-blue-400 transition text-blue-500 nav-item colored cursor-pointer no-underline" href="{% url 'logout' %}">Logout</a></li>
+            <li><a class="px-5 py-3 mx-3 font-bold hover:bg-blue-400 transition text-white bg-blue-500 rounded-md nav-item button cursor-pointer" style="text-decoration: none" >{{user.username}}</a></li>
+        </ul>
+        {%else%}
+        <ul class="nav-links flex items-center">
+            <li><a class="px-4 py-2 mx-3 font-bold hover:text-blue-400 transition text-blue-500 nav-item colored cursor-pointer no-underline" href="{% url 'login' %}">Sign in</a></li>
+            <li><a class="px-5 py-2 mx-3 font-bold hover:bg-blue-400 transition text-white bg-blue-500 rounded-md nav-item button cursor-pointer" style="text-decoration: none" href="{% url 'registration' %}">Sign up</a></li>
+        </ul>
+        {%endif%}
+        {%endblock%}
+    </nav>
+    <main class="mx-44 mt-16">
+        <section class="banner-part" style="padding-bottom:60px">
+            <div class="container">
+                <div class="grid grid-cols-2 my-10 items-center">
+                    <div>
+                        <h1 class="my-3 text-4xl font-bold text-blue-600">Are you ready to Learn?</h1>
+                        <div class="text-xl font-medium my-4">
+                            <p>Learn with fun on <span class="text-blue-700">any schedule</span></p>
+                            <p>Start learn with us today!</p>
+                        </div>
+                        <a class="text-white bg-blue-600 px-5 py-3 rounded-md mt-14 block w-60 text-center font-bold text-xl focus:outline-none focus:ring-2 hover:bg-blue-700 transition" style="text-decoration: none" href="{% url 'login' %}">
+                            Get Started
+                        </a>
+                    </div>
+                    <div>
+                        <img class="img-fluid" src="{% static 'app/img/Photos/Illustration.png' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Banner part ends -->
+        <section class="categories" style="padding-bottom: 30px;">
+            <div class="grid grid-cols-4 gap-4 my-10">
+                <div>
+                        <div class="border-2 py-3 px-4 rounded-md shadow-md grid grid-cols-4 gap-4">
+                            <div class="col-span-1 flex items-center">
+                                <img class="img-fluid" width="50" height="50" src="{% static 'app/img/ICON/book.png' %}" alt="">
+                            </div>
+                            <div class="col-span-3 flex items-center">
+                                <div>
+                                    <h1 class="text-blue-600 font-bold text-xl">1500+ Topics</h1>
+                                    <p class="text-gray-800 font-medium text-lg">Learn Anythings</p>
+                                </div>
+                            </div>
+                        </div>
+            </div>
+                <div>
+                    <div class="border-2 py-3 px-4 rounded-md shadow-md grid grid-cols-4 gap-4">
+                        <div class="col-span-1 flex items-center">
+                            <img class="img-fluid" width="50" height="50" src="{% static 'app/img/ICON/Student.png' %}" alt="">
+                        </div>
+                        <div class="col-span-3 flex items-center">
+                            <div>
+                                <h1 class="text-blue-600 font-bold text-xl">1800+ Students</h1>
+                                <p class="text-gray-800 font-medium text-lg">Learn Anythings</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="border-2 py-3 px-4 rounded-md shadow-md grid grid-cols-4 gap-4">
+                        <div class="col-span-1 flex items-center">
+                            <img class="img-fluid" width="50" height="50" src="{% static 'app/img/ICON/Students.png' %}" alt="">
+                        </div>
+                        <div class="col-span-3 flex items-center">
+                            <div>
+                                <h1 class="text-blue-600 font-bold text-xl">9K+ Test taken</h1>
+                                <p class="text-gray-800 font-medium text-lg">Learn Anythings</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="border-2 py-3 px-4 rounded-md shadow-md grid grid-cols-4 gap-4">
+                        <div class="col-span-1 flex items-center">
+                            <img class="img-fluid" width="50" height="50" src="{% static 'app/img/ICON/Test.png' %}" alt="">
+                        </div>
+                        <div class="col-span-3 flex items-center">
+                            <div>
+                                <h1 class="text-blue-600 font-bold text-xl">2K+ Students</h1>
+                                <p class="text-gray-800 font-medium text-lg">Learn Anythings</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr>
+        <!-- catagories part ends -->
+        <section class="course-section">
+            <div class="flex items-center justify-between">
+                <h1 class="text-3xl font-bold ml-3 my-5">Online Courses</h1>
+                <div>
+                    <form class="" action="{%url 'search_by_course_text' %}" method="post" style="padding-top: 10px;">
+                        {% csrf_token %}
+                        <input id="search_field" class="border-2 px-4 py-2 rounded-md placeholder-gray-800 focus:outline-none focus:ring-indigo-500 focus:ring-2" type="text" name="search_field" value="" method='POST' placeholder="Search course" required>
+                        <button type="submit" class="bg-blue-500 px-4 py-2 text-white font-bold rounded-md border-blue-500 border-2">Find</button>
+                    </form>
+                </div>
+            </div>
+            <div class="container course-content my-10">
+                {% if latest_courses %}
+                <div class="grid grid-cols-3 gap-4">
+                    {% for course in latest_courses %}
+                    <div class="card shadow-md rounded-md">
+                        <div class="card-body">
+                            <h5 class="card-title text-2xl font-bold text-blue-600">{{course.course_name}}</h5>
+                            <p class="card-text text-gray-900 font-medium">{{course.course_description|truncatewords:10}}</p>
+
+                            <div class="flex items-center my-2">
+                                <img src="{% static 'app/img/ICON/calendar.png' %}" width="25" height="25">
+                                <p class="">{{course.course_date}}</p>
+                            </div>
+
+                            <a style="text-decoration: none" href="{% url 'get_course_by_id' course.id%}" class="text-white bg-blue-600 px-3 py-2 rounded-md mt-3 block w-full text-center font-bold focus:outline-none focus:ring-2 hover:bg-blue-700 transition button-highlight buy-course-button">
+                                Show Course
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                        <p> "No available courses" </p>
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+        <hr>
+        <!-- course section ends -->
+        <section id="testimonial" class="my-24">
+            <div class="text-center text-5xl font-bold text-gray-900">
+                <h2>Testimonial</h2>
+            </div>
+            <div class="container test-area">
+                <div class="row my-10">
+                    <div class="grid grid-cols-4 items-center gap-10">
+                        <div class="flex justify-end col-span-1">
+                            <img src="{% static 'app/img/Photos/Man.png' %}" width="200" height="200">
+                        </div>
+                        <p class="col-span-2">There are many variations of passages of Lorem Ipsum available, but the
+                            majority have suffered alteration in some form, by injected humour,
+                            or randomised words which don't look even slightly believable.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="px-44 footer bg-gray-100 relative pt-1 border-b-2 border-blue-700 ">
+        <div class="container mx-auto px-6">
+            <div class="sm:flex sm:mt-8">
+                <div class="mt-8 sm:mt-0 sm:w-full sm:px-8 flex flex-col md:flex-row justify-between">
+                    <div class="flex flex-col">
+                        <span class="font-bold text-gray-700 uppercase mt-4 md:mt-0 mb-2">ONLINE COURSES</span>
+                        <span class="my-2"><a href="/" class="text-blue-700  text-md hover:text-blue-500">Main page</a></span>
+                        <span class="my-2"><a href="/login" class="text-blue-700  text-md hover:text-blue-500">Sign in</a></span>
+                        <span class="my-2"><a href="/register" class="text-blue-700  text-md hover:text-blue-500">Sign up</a></span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-gray-700 uppercase mt-4 md:mt-0 mb-2">SOCIAL NETWORKS</span>
+                        <span class="my-2"><a href="#" class="text-blue-700 text-md hover:text-blue-500">Instagram</a></span>
+                        <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">Telegram</a></span>
+                        <span class="my-2"><a href="#" class="text-blue-700 text-md hover:text-blue-500">Youtube</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto px-6">
+            <div class="mt-16 border-t-2 border-gray-300 flex flex-col items-center">
+                <div class="sm:w-2/3 text-center py-6">
+                    <p class="text-sm text-blue-700 font-bold mb-2">
+                        © 2021 by ONLINE COURSES
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

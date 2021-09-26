@@ -1,0 +1,11 @@
+{% block content %}
+<br>
+<h2>Change user profile</h2>
+<br>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Change</button>
+</form>
+<br>
+{% endblock %}

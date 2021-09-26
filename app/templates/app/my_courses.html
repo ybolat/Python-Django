@@ -1,0 +1,112 @@
+{% extends "app/layout.html" %}
+{% load static %}
+<link href="{% static 'app/css/course.pc_course.css' %}" rel="stylesheet">
+{% block content %}
+    <style>
+        .container .course_section{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            grid-column-gap: 50px;
+        }
+        .card {
+            border: none;
+            box-shadow: 5px 6px 6px 2px #e9ecef;
+            border-radius: 4px
+        }
+
+        .icons i {
+            margin-left: 8px
+        }
+
+        .reply small {
+            color: #b7b4b4
+        }
+
+        .reply small:hover {
+            color: green;
+            cursor: pointer;
+        }
+        .opinion_submit{
+            background-color:#3A7CA5;
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        .course_name{
+            font-family: Open Sans;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 32px;
+            font-feature-settings: 'liga' off;
+            color: #FFFFFF;
+        }
+        .course_description{
+            font-family: Open Sans;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 26px;
+            font-feature-settings: 'liga' off;
+            color: #FFFFFF;
+        }
+        .rating{
+            font-family: Open Sans;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 12px;
+            line-height: 16px;
+            /* identical to box height, or 133% */
+
+            display: flex;
+            align-items: center;
+            text-transform: uppercase;
+            color: #3A7CA5;
+        }
+        .rate{
+            background-color:#FFFFFF;
+            border: none;
+            color: #3A7CA5;
+            padding: 16px 32px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+    {%if user.is_authenticated%}
+        {% if result %}
+            <div class="px-44 my-12">
+                <h1 class="text-4xl text-blue-500 font-bold">My courses</h1>
+                <br>
+                <hr>
+                <br>
+                <div class="grid grid-cols-3 gap-10">
+                    {% for course in result %}
+                        <div class="shadow-md rounded-md border-2">
+                            <div class="card-body">
+                                <h5 class="card-title text-2xl font-bold text-blue-600">{{course.pc_course.course_name}}</h5>
+                                <p class="card-text text-gray-900 font-medium">{{course.pc_course.course_description|truncatewords:10}}</p>
+
+                                <div class="flex items-center my-2">
+                                    <img src="{% static 'app/img/ICON/calendar.png' %}" width="25" height="25">
+                                    <p class="">{{course.pc_course.course_date}}</p>
+                                </div>
+
+                                <a style="text-decoration: none" href="{% url 'get_course_by_id' course.pc_course.id%}" class="text-white bg-blue-600 px-3 py-2 rounded-md mt-3 block w-full text-center font-bold focus:outline-none focus:ring-2 hover:bg-blue-700 transition button-highlight buy-course-button">
+                                    Show Course
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+        {% else %}
+            {{empty_result}}
+        {% endif %}
+    {% endif %}
+{%endblock%}
+

@@ -1,0 +1,57 @@
+
+.text{
+    text-align: center;
+    font-weight: 700;
+    font-size: 36px;
+}
+
+.categories .cat-item:hover, .categories .active-bg-white{
+    background-color: white;
+    box-shadow: 5px 5px 10px lightgray;
+}
+.course-content{
+    padding-top: 40px;
+    padding-bottom: 80px;
+}
+.course-content .col-md-4{
+    padding-right: 0;
+    padding-left: 0;
+}
+.card{
+    border: none;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px lightgray;
+}
+.course-section .card .card-text{
+    padding-bottom: 15px;
+}
+ .card-img-top{
+    padding: 15px 15px;
+}
+.course-section .card-item {
+    padding-top: 20px;
+}
+.course-section .card-item img{
+    width: 30px;
+}
+.course-section .card-item p{
+    padding-top: 15px;
+    padding-left: 6px;
+}
+#testimonial .test-area img{
+    width: 150px;
+}
+#testimonial .test-area .text-blog{
+    padding-left: 60px;
+}
+#testimonial .test-area .text-item{
+    padding: 20px 120px 0;
+}
+
+.contacts{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-column-gap: 30px;
+}
+
+ 

@@ -1,0 +1,161 @@
+@media (min-width: 992px) and (max-width: 1199px){
+h1{
+    font-size: 1.5rem;
+}
+.categories .cat-item{
+    width: 196px;
+    height: 220px;
+}
+h5{
+    font-size: 22px;
+}
+p{
+    font-size: 14px;
+}
+}
+
+/* lg device ends */
+
+@media (min-width: 768px) and (max-width: 991px){
+h1{
+    font-size: 1.5rem;
+}
+.banner-part p{
+    padding: 4px 0;
+}
+p{
+    font-size: 13px;
+}
+.button-highlight{
+    padding: 8px 16px;
+}
+.banner-part{
+    height: 428px;
+}
+.categories .cat-item{
+    padding-top: 28%;
+    width: 140px;
+    height: 178px;
+}
+h3{
+    padding: 0 10px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+h5{
+    font-size: 17px;
+}
+.course-section .card-item{
+    padding-top: 0;
+}
+.course-section .card-item p{
+    padding-left: 0;
+    font-size: 11px;
+}
+#testimonial .test-area img{
+    width: 100px;
+}
+.course-section .card-item img{
+    width: 20px;
+}
+#testimonial .test-area .text-blog{
+    padding-left: 40px;
+}
+#testimonial .test-area .text-item{
+    padding: 20px 107px 0;
+}
+footer .footer-text{
+    padding-top: 26px;
+}
+footer p{
+    font-size: 13px;
+}
+
+}
+
+/* md device ends */
+
+@media (min-width: 576px) and (max-width: 767px){
+ h1{
+     font-size: 1.5rem;
+ }
+ p{
+     font-size: 13px;
+ }
+ .button-highlight{
+     padding: 8px 14px;
+ }
+ .banner-part img{
+     width: 96%;
+ }
+ .banner-part{
+     height: 600px;
+ }
+ .navigation img{
+     width: 160px;
+ }
+ .categories .cat-item{
+     width: 400px;
+     height: 300px;
+     padding-top: 15%;
+     margin-bottom: 18px;
+
+ }
+ .course-content .col-sm-12{
+     margin-top: 25px;
+ }
+ #testimonial .test-area img{
+     width: 100px;
+ }
+ #testimonial .test-area .text-blog{
+     padding-left: 24px;
+ }
+ #testimonial .test-area .text-item{
+     padding: 20px 20px 0;
+ }
+
+
+}
+
+/* sm device ends */
+
+@media (max-width: 575px){
+    .navigation img{
+        width: 135px;
+    }
+    h1{
+        font-size: 1.5rem;
+    }
+    p{
+        font-size: 12px;
+    }
+    .button-highlight{
+        padding: 6px 15px;
+    }
+    .banner-part{
+        height: 526px;
+    }
+    .categories .cat-item{
+        width: 175px;
+        height: 200px;
+        padding-top: 12%;
+        margin-bottom: 15px;
+    }
+    h3{
+        font-size: 0.75rem;
+        font-weight: 600;
+    }
+    #testimonial .test-area .text-item{
+        padding: 0 10px;
+    }
+    #testimonial .test-area .text-blog{
+        padding-left: 15px;
+    }
+    #testimonial .test-area img{
+        width: 100px;
+        
+    }
+}
+@media (max-width: 991px){
+    
+}
