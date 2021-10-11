@@ -34,11 +34,6 @@ class TestViews(TestCase):
         response = self.client.get(reverse('get_course_by_id', args=[1]))
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'app/course.html')
-    #
-    # def test_AllCourses_view(self):
-    #     response = self.client.get(reverse('allCourses'))
-    #     self.assertEquals(response.status_code, 200)
-    #     self.assertTemplateUsed(response, 'app/all_course.html')
 
     def test_my_courses_view(self):
         response = self.client.get(reverse('my_courses'))
@@ -68,3 +63,8 @@ class TestViews(TestCase):
         response = self.client.get(reverse('aboutUs'))
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'app/about.html')
+
+    def test_search_successView(self):
+        response = self.client.get(reverse('search_success', args=[1]))
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'app/search.html')
